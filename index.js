@@ -3,11 +3,12 @@ const fs = require('fs');
 inquirer
     .prompt([
         {
-            type: 'input',
-            message: 'Is this working?',
-            name: "isThisWorking"
+            type: 'list',
+            message: 'Select the shape type: ',
+            name: "shapes",
+            choices: ["Square", "Circle", "Triangle"]
         }
     ])
     .then ((answers) => {
-        console.log(answers.isThisWorking);
+        console.log(answers.shapes);
     })
