@@ -2,20 +2,21 @@ class Shape {
     constructor(color, text) {
         this.color = color;
         this.text = text;
+
+        const setColor = (newColor) => {
+            this.color = newColor;
+        }
     }
 }
 class Triangle extends Shape{
-    constructor(color, text, sideOneLength, sideTwoLength, sideThreeLength) {
+    constructor(color, text, upsideDown) {
         super(color, text);
-        this.sideOneLength = sideOneLength;
-        this.sideTwoLength=sideTwoLength;
-        this.sideThreeLength = sideThreeLength;
+        this.upsideDown = upsideDown;
     }
 }
 class Square extends Shape{
-    constructor(color, text, sideLength) {
+    constructor(color, text) {
         super(color, text);
-        this.sideLength = sideLength;
     }
 }
 class Circle extends Shape{
