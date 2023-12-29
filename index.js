@@ -1,8 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const Triangle = require('./classes/Shapes.js');
-const Square = require('./classes/Shapes.js');
-const Circle = require('./classes/Shapes.js');
+const {Triangle, Circle, Square} = require('./classes/Shapes.js');
+const fileName = 'examples/logo.svg';
 const questions = [{
     type: 'input',
     message: 'Enter text for the logo (up to three characters): ',
@@ -40,13 +39,33 @@ inquirer
             runPrompts();
         }
         else {
-            console.log("nice");
             generateShape(answers);
         }
     })
 }
 const generateShape = (data) => {
-    const shape = new Triangle;
+    if (data.shapes === 'Triangle') {
+        var shape = new Triangle(data.shapeColor, data.logo, data.textColor, data.upsideDown);
+    }
+    else if (data.shapes === "Square") {
+        var shape = new Square(data.shapeColor, data.logo, data.textColor);
+    }
+    else {
+        var shape = new Circle(data.shapeColor, data.logo, data.textColor);
+    }
     console.log(shape);
+    fs.writeFile(fileName, shape.render(),  {'flag':'a'},  function(err) {
+        if (err) {
+            return console.error(err);
+        }
+    });
+    console.log('Generated logo.svg')
 }
+const init = (file) => {
+    fs.writeFile(file, '<svg width="300" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg">\n   ', (err) => {
+    if (err) {
+        return console.error(err);
+    }});
+}
+init('examples/logo.svg');
 runPrompts();
