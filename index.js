@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const {Triangle, Circle, Square} = require('./classes/Shapes.js');
+const {Triangle, Circle, Square} = require('./lib/Shapes.js');
 const fileName = 'examples/logo.svg';
 const questions = [{
     type: 'input',
