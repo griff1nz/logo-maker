@@ -1,4 +1,4 @@
 <svg width="300" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-   <polygon points='150, 175 250, 25 50, 25' fill='red'/>
-<text x="150" y="90" text-anchor='middle' alignment-baseline='middle' fill='blue' font-weight='bold' font-size='50'>SVG</text>
+   <polygon points='150, 175 250, 25 50, 25' fill='Green'/>
+<text x="150" y="90" text-anchor='middle' alignment-baseline='middle' fill='yellow' font-weight='bold' font-size='50'>SVG</text>
 </svg>

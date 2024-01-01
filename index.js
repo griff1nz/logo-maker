@@ -22,7 +22,7 @@ const questions = [{
     type: 'confirm',
     message: 'Upside down?',
     name: 'upsideDown',
-    when: (answers) => answers.shapes === 'Triangle',
+    when: (answers) => answers.shapes === 'Triangle', // Only asks if the shape should be upside down if the shape is a triangle
 },
 {
     type: 'input', 
@@ -54,7 +54,7 @@ const generateShape = (data) => {
         var shape = new Circle(data.shapeColor, data.logo, data.textColor);
     }
     console.log(shape);
-    fs.writeFile(fileName, shape.render(),  {'flag':'a'},  function(err) {
+    fs.writeFile(fileName, shape.render() + '\n</svg>',  {'flag':'a'},  function(err) { // Instead of putting </svg> in each render() statement, it adds it after the function is run
         if (err) {
             return console.error(err);
         }
